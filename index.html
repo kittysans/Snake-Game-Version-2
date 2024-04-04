@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="main.js" defer></script>
+</head>
+<body>
+    <div class="header">
+        <div class="score-section">
+            <div class="apple">
+                <span><img src="Assets/icons/apple.png"></span>
+                <span id="curr-score">0</span>
+            </div>
+            <div class="trophy">
+                <span><img src="Assets/icons/trophy.png"></span>
+                <span id="highest-score">0</span>
+            </div>
+        </div>
+
+        <div id="switch-sound" class="speaker open">
+            <img class="open-sound" src="Assets/icons/sound max.png">
+            <img class="close-sound" src="Assets/icons/sound min.png">
+        </div>
+    </div>
+
+    <div class="wrapper">
+        <div id="board"></div>
+    </div>
+
+    <div id="pop-up" class="pop-up">
+        <div class="container">
+            <div class="show-score">
+                <div class="box">
+                    <img src="Assets/icons/apple.png">
+                    <span id="curr-score">0</span>
+                </div>
+                <div class="box">
+                    <img src="Assets/icons/trophy.png">
+                    <span id="highest-score">100</span>
+                </div>
+            </div>
+            <button id="replay-bt"><span><img src="Assets/icons/replay.png"></span>replay</button>
+        </div>
+    </div>
+</body>
+</html>

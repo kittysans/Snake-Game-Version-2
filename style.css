@@ -1,0 +1,170 @@
+@import url('https://fonts.googleapis.com/css2?family=Reddit+Mono:wght@200..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Reddit Mono, sans-serif;
+}
+
+body {
+    height: 100svh;
+    display: grid;
+    grid: 1fr 10fr / 1fr;
+    position: relative;
+}
+
+img {
+    width: 30px;
+    height: 30px;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+.header {
+    margin-inline: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header .score-section {
+    display: flex;
+    gap: 30px;
+}
+
+.header .score-section .apple,
+.header .score-section .trophy {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.speaker {
+    cursor: pointer;
+}
+.speaker .open-sound,
+.speaker .close-sound {
+    display: none;
+}
+.speaker.open .open-sound {
+    display: block;
+}
+.speaker.close .close-sound {
+    display: block;
+}
+
+.wrapper {
+    display: grid;
+    place-content: center;
+}
+
+.wrapper #board {
+    --width-board: 500px;
+    --width-square: calc(var(--width-board) / 15);
+
+    display: grid;
+    width: var(--width-board);
+    grid-template-columns: repeat(auto-fit, var(--width-square));
+}
+
+.wrapper #board .square {
+    width: var(--width-square);
+    height: var(--width-square);
+    position: relative;
+}
+.wrapper #board .square::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    width: inherit;
+    height: inherit;
+}
+
+.wrapper #board .square.odd {
+    background: #aad751;
+}
+.wrapper #board .square.even {
+    background: #a2d149;
+}
+.wrapper #board .square.snake::after{
+    background: blue;
+}
+.wrapper #board .square.apple::after {
+    background: red;
+}
+
+.pop-up {
+    position: absolute;
+    inset: 0;
+    background: #00000033;
+    display: none;
+    place-content: center;
+}
+
+.pop-up.show {
+    display: grid;
+}
+
+.pop-up .container {
+    --width-pop-up: 400px;
+
+    width: var(--width-pop-up);
+    height: var(--width-pop-up);
+    border-radius: 5px;
+    background: #fff;
+    display: grid;
+    grid: 5fr 2fr / 1fr;
+}
+
+.pop-up .container .show-score {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+}
+
+.pop-up .container .show-score .box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.pop-up .container .show-score .box img {
+    width: 50px;
+    height: 50px;
+    user-select: none;
+}
+
+.pop-up .container button {
+    margin: 5% 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    text-transform: capitalize;
+    font-size: 1.2em;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    background: #aad751;
+    cursor: pointer;
+}
+
+.pop-up .container button:active {
+    background: #a2d149;
+}
+
+
+@media screen and (width <= 500px) {
+    .wrapper #board {
+        --width-board: 300px;
+    }
+    .pop-up .container {
+        --width-pop-up: 300px
+        ;
+    }
+}
